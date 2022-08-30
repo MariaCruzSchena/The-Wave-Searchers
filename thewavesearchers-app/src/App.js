@@ -4,10 +4,7 @@ import ItemListContainer from './container/ItemListContainer';
 import { useEffect, useState} from "react";
  
  
- 
- 
-function App() {
- 
+function App() { 
   const [products, setProducts] = useState([]);
  
   const bringData = async () => {
@@ -22,20 +19,15 @@ function App() {
  
   useEffect(()=> {
    bringData();    
-  }, [])
- 
- 
-  // console.log (cart)
+  }, [])   
   console.log(products)
  
   return (
     <div className="App">
       <header className="App-header">
         <Navbar />
-        <ItemListContainer greeting="OFFSHORE COLL." products = {products} />  
-     
-     </header>
-    
+        <ItemListContainer greeting="OFFSHORE COLL." products = {products} />       
+     </header>    
    </div>
  );
 }

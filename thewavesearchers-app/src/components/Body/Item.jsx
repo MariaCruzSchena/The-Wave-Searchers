@@ -6,12 +6,9 @@ const Item = ({product, index}) => {
  
     return (
         <div className='cardContainer' key={index}>
-            <Card className='cardBorder' style={{ width: '18rem' }}>
- 
-              <Card.Img className='cardImg' variant="top" src={product.thumbnail} />
- 
-                <Card.Body>
- 
+            <Card className='cardBorder' style={{ width: '18rem' }}> 
+              <Card.Img className='cardImg' variant="top" src={product.thumbnail} /> 
+                <Card.Body> 
                     <Card.Title className='cardTitle'>{product.title}</Card.Title>
  
                     <Card.Text className='cardText'>
@@ -32,8 +29,7 @@ const Item = ({product, index}) => {
                             >+</button>
                         </div>
                         <button className='buttonsAddToCart'>Agregar al carrito</button>
-                    </div >
- 
+                    </div > 
                 </Card.Body>
             </Card>
         </div>
