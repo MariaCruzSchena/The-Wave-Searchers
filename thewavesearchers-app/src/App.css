@@ -20,7 +20,7 @@
 }
  
 .logo  {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: uppercase;  
   font-weight: bolder;
   text-align: center;
@@ -80,6 +80,7 @@ a {
 }
 
 .title {  
+  font-family: 'Original Surfer', cursive;
   margin: 2rem auto 0rem auto ;
   font-size: 2.5rem;        
   font-weight: bolder;
@@ -172,7 +173,7 @@ a {
   }
  
  
-@media only screen and (min-width: 400px){
+@media only screen and (min-width: 500px){
   .nav  {
     display: flex;
     flex-direction: column;
@@ -181,7 +182,7 @@ a {
   }
  
   .logo  {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-transform: uppercase;  
     font-weight: bolder;
     text-align: center;
@@ -238,6 +239,7 @@ a {
   }
 
   .title {  
+    font-family: 'Original Surfer', cursive;
     margin: 2rem auto 0rem auto ;
     font-size: 5rem;        
     font-weight: bolder;
@@ -341,8 +343,8 @@ a {
     align-items: center;
   }
  
-  .logo  {
-    font-size: 2rem;
+  .logo  {    
+    font-size: 1.5rem;
     text-transform: uppercase;
     margin-left: 2rem;
     font-weight: bolder;
@@ -392,6 +394,7 @@ a {
     height: 277px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     background-image: url(./../public/be177e383a751ee5040f601e3c391304.jpg);
     background-repeat: no-repeat;
     background-size: cover;    
@@ -406,14 +409,16 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     
     
   }
  
   .title {
+    font-family: 'Original Surfer', cursive;
     margin-top: 4rem;  
     font-size: 6rem;
+    margin-top:0rem;
     margin-right: 5rem;
     font-weight: bolder;
     letter-spacing: .1px;
