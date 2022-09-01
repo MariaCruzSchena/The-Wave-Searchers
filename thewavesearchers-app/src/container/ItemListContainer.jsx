@@ -1,15 +1,27 @@
 import ItemList from './../components/Body/ItemList'
+import { useEffect, useState} from "react";
+
+const ItemListContainer = () => {
+    const [products, setProducts] = useState([]);
  
-const ItemListContainer = ({ greeting, products }) => {
+    const bringData = async () => {
+        try {
+        const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=tabladesurf&limit=20')
+        const data = await response.json();
+        setProducts(data.results);
+        } catch (e) {
+        console.log(e)
+        }    
+    }
  
+    useEffect(()=> {
+    bringData();    
+    }, [])   
+    console.log(products)
+
     return (
-        <div className="bodyContainer">        
-            <div className='imgContainer'>
-                <div className="titleContainer">
-                    <h2 className="title">{greeting}</h2>
-                </div>
-            </div>
-            <div className='bodyContainer'>
+        <div className="bodyContainer">                              
+            <div className='productsContainer'>
                 <ItemList products={products}  />
             </div>
         </div>

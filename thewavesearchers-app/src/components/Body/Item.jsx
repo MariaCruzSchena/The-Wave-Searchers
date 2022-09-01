@@ -2,12 +2,12 @@ import Card from 'react-bootstrap/Card';
 import { useState } from "react";
  
 const Item = ({product, index}) => {
-    const [count, setCount] = useState(0);
- 
+    const [count, setCount] = useState(0);   
+
     return (
         <div className='cardContainer' key={index}>
             <Card className='cardBorder' style={{ width: '18rem' }}> 
-              <Card.Img className='cardImg' variant="top" src={product.thumbnail} /> 
+                <Card.Img className='cardImg' variant="top" src={product.thumbnail} /> 
                 <Card.Body> 
                     <Card.Title className='cardTitle'>{product.title}</Card.Title>
  
@@ -29,6 +29,7 @@ const Item = ({product, index}) => {
                             >+</button>
                         </div>
                         <button className='buttonsAddToCart'>Agregar al carrito</button>
+                        <button className='buttonsAddToCart'>Detalle</button>
                     </div > 
                 </Card.Body>
             </Card>

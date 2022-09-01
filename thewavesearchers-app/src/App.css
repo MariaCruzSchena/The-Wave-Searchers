@@ -94,6 +94,14 @@ a {
  
  
   /*CARD*/
+  .productsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: flex-start; 
+    flex-wrap: wrap;
+      
+  }
   .cardContainer {
     display: flex;
     flex-direction: row;
@@ -135,6 +143,8 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
+    border:none;
+    background-color: white;
  
   }
  
@@ -148,16 +158,19 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
+    border:none;
+    background-color: white;
   }
  
   .buttonsAddToCart{
     font-weight: bold;
     width: 14rem;
-    background-color: gold;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  
     margin: .5rem 0rem;
     padding: .3rem;
     border-radius: 1rem;
+    border:none;
   }
  
   .buttonsAddToCart:hover {
@@ -172,7 +185,81 @@ a {
     transition-duration: .6s;
   }
  
- 
+  /* ITEM DETAIL*/
+
+  .itemDetailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .itemDetailImg{
+    padding: 1rem;
+    
+  }
+
+  .itemDetailImg2{        
+    width: 50vw;
+    height: 90vh;
+    
+    
+  }
+
+  .itemDetailContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem
+   
+  }
+
+  .itemDetailTitle{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;    
+    width: 80%;
+
+  }
+
+  .itemDetailPrice{
+    font-size: 1.1rem;
+    font-weight: lighter;
+    text-align: center;
+    padding: 1rem;
+    
+  }
+
+  .itemDetailParagraph{
+    font-size: 1rem;
+    font-weight: lighter;
+    text-align: center;
+    padding: .5rem;
+    width: 70%;
+
+  }
+
+  .itemDetailButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    
+
+  }
+
+  .itemDetailButtonsSubcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
+
 @media only screen and (min-width: 500px){
   .nav  {
     display: flex;
@@ -252,6 +339,14 @@ a {
  
  
   /*CARD*/
+  .productsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: flex-start; 
+    flex-wrap: wrap;
+      
+  }
   .cardContainer {
     display: flex;
     flex-direction: row;
@@ -293,6 +388,8 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
+    border:none;
+    background-color: white;
  
   }
  
@@ -307,16 +404,19 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
+    border:none;
+    background-color: white;
   }
  
   .buttonsAddToCart{
     font-weight: bold;
     width: 14rem;
-    background-color: gold;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  
     margin: .5rem 0rem;
     padding: .3rem;
     border-radius: 1rem;
+    border:none;
   }
  
   .buttonsAddToCart:hover {
@@ -331,6 +431,81 @@ a {
     transition-duration: .6s;
   }
  
+  /* ITEM DETAIL*/
+
+  .itemDetailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .itemDetailImg{
+    padding: 2rem;
+    
+  }
+
+  .itemDetailImg2{
+    padding: 1rem;     
+    width: 50vw;
+    height: auto;
+    
+    
+  }
+
+  .itemDetailContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem
+   
+  }
+
+  .itemDetailTitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;    
+    width: 70%;
+
+  }
+
+  .itemDetailPrice{
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-align: center;
+    padding: 1rem;
+    
+  }
+
+  .itemDetailParagraph{
+    font-size: 1rem;
+    font-weight: lighter;
+    text-align: center;
+    padding: .5rem;
+    width: 50%;
+
+  }
+
+  .itemDetailButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    
+
+  }
+
+  .itemDetailButtonsSubcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
 }
  
 @media only screen and (min-width: 780px){
@@ -386,7 +561,8 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;  
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
+      
   }
  
   .imgContainer{
@@ -426,18 +602,42 @@ a {
     text-align: end;  
     color:#ffa500;
     text-shadow: 3px 3px 0 #00000050;
+    opacity: 90%;
     
   }
  
  
   /*CARD*/
+  .productsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: flex-start; 
+    flex-wrap: wrap;
+      
+  }
+
   .cardContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;  
+    border: none;
+    border-color: none;
+    
   }  
  
+  .cardBorder {
+    border: none;
+    border-color: none;
+    
+  }
+
+  .cardBody {
+    border: none;
+    border-color: none;
+  }
+
   .cardTitle{
     font-weight: bold !important;
     padding: 1rem;
@@ -472,6 +672,8 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
+    border: none;
+    background-color: white;
   }
  
   .buttonsAmount{
@@ -479,22 +681,26 @@ a {
     width: 4rem;
     font-size: 1.2rem;
     color: black;
+    
   }
  
   .buttonsPlus{
     font-size: 1.2rem;
     font-weight: bold;
     padding: 1rem;
+    border:none;
+    background-color: white;
   }
  
   .buttonsAddToCart{
-    font-weight: bold;
+    
     width: 12rem;
-    background-color: gold;
+    background-color:white;  
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  
     margin: .5rem 0rem;
     padding: .3rem;
     border-radius: 1rem;
+    border:none;
   }
  
   .buttonsAddToCart:hover {
@@ -509,5 +715,87 @@ a {
     transition-duration: .6s;
   }
  
+  /* ITEM DETAIL*/
+
+  .itemDetailContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .itemDetailImg{
+    width: 50vw;
+    padding: 2rem;
+    
+  }
+
+  .itemDetailImg2{
+    padding: 1rem;     
+    width: 50vw;
+    height: auto;
+    
+    
+  }
+
+  .itemDetailContent{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0rem, 2rem, 0rem, 3rem;
+   
+  }
+
+  .itemDetailTitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 2rem;
+    width: 80%;
+    align-self: flex-start;
+
+  }
+
+  .itemDetailPrice{
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-align: left;
+    padding-left: 2rem;
+    align-self: flex-start;
+  }
+
+  .itemDetailParagraph{
+    font-size: 1rem;
+    font-weight: lighter;
+    text-align: left;
+    padding: 1rem 0rem 1rem 2rem;
+    width: 50%;
+    align-self: flex-start;
+
+  }
+
+  .itemDetailButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;    
+    align-self: flex-start;
+
+  }
+
+  .itemDetailButtonsSubcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-right: 3rem;
+    align-self: flex-start;
+    
+  }
+
+  
  
 }

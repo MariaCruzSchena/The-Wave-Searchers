@@ -1,32 +1,20 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import ItemListContainer from './container/ItemListContainer';
-import { useEffect, useState} from "react";
+import Banner from './components/Body/Banner';
+import ItemDetailContainer from './container/ItemDetailContainer';
+// import ItemListContainer from './container/ItemListContainer';
+
+
  
  
-function App() { 
-  const [products, setProducts] = useState([]);
- 
-  const bringData = async () => {
-    try {
-      const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=Tabladesurf')
-      const data = await response.json();
-      setProducts(data.results);
-    } catch (e) {
-      console.log(e)
-    }    
-  }
- 
-  useEffect(()=> {
-   bringData();    
-  }, [])   
-  console.log(products)
- 
+function App() {  
   return (
     <div className="App">
       <header className="App-header">
         <Navbar />
-        <ItemListContainer greeting="OFFSHORE COLL." products = {products} />       
+        <Banner greeting={"OFFSHORE COLL."} /> 
+        {/* <ItemListContainer />    */}
+        <ItemDetailContainer />   
      </header>    
    </div>
  );
