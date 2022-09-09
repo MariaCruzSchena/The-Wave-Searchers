@@ -11,7 +11,7 @@ const Item = ({product, index}) => {
                 <Card.Body className= 'cardBody'> 
                     <Card.Title className='cardTitle'>{product.title}</Card.Title>
                     <Card.Text className='cardText'>$ARS {product.price}</Card.Text>  
-                    <Link to={`/detail/${index}`}><button className='buttonsAddToCart'>Detalle</button></Link>               
+                    <Link to={`/detail/${product.id}`}><button className='buttonsAddToCart'>Detalle</button></Link>               
                 </Card.Body>
             </Card>
         </div>

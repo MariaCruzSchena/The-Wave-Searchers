@@ -3,30 +3,26 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../components/Body/ItemDetail";
 
 const ItemDetailContainer = () => {
-
     const [item, setItem] = useState([]);
     const { productId } = useParams();
 
     const getItem = async () => {
         try {
-            const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=tabladesurf&limit=20')
+            const response = await fetch('https://api.mercadolibre.com/items/' + productId)
             const data = await response.json();
-            setItem(data.results[productId]);
+            setItem(data);
         } catch (e) {
             console.log(e)
         }
     }
-
     useEffect(() => {
         setTimeout(() => {
             getItem();
         }, 2000);
-    }, [])
+    }, [productId])
     console.log(item)
 
     return <ItemDetail item={item} />
-
-
 }
 
 

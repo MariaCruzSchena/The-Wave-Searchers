@@ -23,9 +23,8 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         bringData();
-    }, [])
+    }, [categoryId])
     console.log(products)
-
    
     return (
         < div className = "bodyContainer" >
@@ -33,12 +32,7 @@ const ItemListContainer = () => {
                 <ItemList products={products} />
             </div>
         </div>
-    )
-    
-        
-        
-            
-        
+    )       
 }
 
 export default ItemListContainer;
