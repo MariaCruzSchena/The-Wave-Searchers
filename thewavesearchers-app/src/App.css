@@ -250,8 +250,8 @@ a {
   }
 
   .itemDetailImg2{        
-    width: 50vw;
-    height: 90vh;
+    width: 70vw;
+    height: auto;
     
     
   }
@@ -914,8 +914,8 @@ a {
 
   .itemDetailButtonsContainer {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-left: 2rem;    
     align-self: flex-start;
@@ -923,12 +923,11 @@ a {
   }
 
   .itemDetailButtonsSubcontainer{
+    width: 12rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding-right: 3rem;
-    align-self: flex-start;
+    justify-content: space-evenly;
+    align-items: center;  
     
   }
 
