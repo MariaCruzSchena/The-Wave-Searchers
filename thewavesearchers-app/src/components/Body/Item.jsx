@@ -1,36 +1,17 @@
 import Card from 'react-bootstrap/Card';
-import { useState } from "react";
- 
-const Item = ({product, index}) => {
-    const [count, setCount] = useState(0);   
+import { Link } from 'react-router-dom';
+
+
+const Item = ({product, index}) => {    
 
     return (
         <div className='cardContainer' key={index}>
             <Card className='cardBorder' style={{ width: '18rem' }}> 
                 <Card.Img className='cardImg' variant="top" src={product.thumbnail} /> 
-                <Card.Body> 
+                <Card.Body className= 'cardBody'> 
                     <Card.Title className='cardTitle'>{product.title}</Card.Title>
- 
-                    <Card.Text className='cardText'>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                    </Card.Text>
- 
-                    <div className='buttonsContainer' >
-                        <div className='buttonsSubContainer'>
-                            <button
-                                className='buttonsMinus'
-                                onClick = {() => setCount(count - 1 )}
-                            >-</button>
-                            <p className='buttonsAmount'>{count}</p>
-                            <button
-                                className='buttonsPlus'
-                                onClick = {() => setCount(count + 1)}
-                            >+</button>
-                        </div>
-                        <button className='buttonsAddToCart'>Agregar al carrito</button>
-                        <button className='buttonsAddToCart'>Detalle</button>
-                    </div > 
+                    <Card.Text className='cardText'>$ARS {product.price}</Card.Text>  
+                    <Link to={`/detail/${index}`}><button className='buttonsAddToCart'>Detalle</button></Link>               
                 </Card.Body>
             </Card>
         </div>
