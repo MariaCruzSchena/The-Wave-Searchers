@@ -1,12 +1,6 @@
-import { useState } from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
-import ItemCount from "./ItemCount";
-
-
-const ItemDetail = ({ item }) => {
-    const [amount, setAmount] = useState(0);
-    console.log(amount);
-
+const ItemDetail = ({ item, amount, setAmount}) => {
     return (
         <div className="itemDetailContainer">
             <div className="itemDetailImg"><img className="itemDetailImg2" src={item.thumbnail} alt="" /></div>
