@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemDetail from "../components/ItemDetail/ItemDetail";
+import ItemDetailList from "../components/ItemDetail/ItemDetailList";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
     }, [productId])
     console.log(item)
 
-    return <ItemDetail item={item} />
+    return <ItemDetailList item={item} />
 }
 
 

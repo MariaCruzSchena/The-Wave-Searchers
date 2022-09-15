@@ -9,7 +9,7 @@ const ItemDetail = ({ item, amount, setAmount}) => {
                 <h4 className="itemDetailPrice">$ARS {item.price}</h4>
                 <p className="itemDetailParagraph">Some quick example text to build on the card title and make up the bulk of the card's content.
                 </p>
-                <ItemCount amount={amount} setAmount={setAmount}/> 
+                <ItemCount amount={amount} setAmount={setAmount} item= {item}/> 
             </div>
         </div>
     )

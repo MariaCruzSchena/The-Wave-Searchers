@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ItemDetail from "./ItemDetail";
 
-const ItemDetail = ({ item }) => {
+const ItemDetailList = ({ item }) => {
     const [amount, setAmount] = useState(0);
     console.log(amount);
     return (
@@ -9,5 +9,5 @@ const ItemDetail = ({ item }) => {
     )
 }
 
-export default ItemDetail;
+export default ItemDetailList;
 
