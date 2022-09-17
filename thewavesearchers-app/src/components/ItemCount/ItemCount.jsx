@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 
 const ItemCount = ({amount, setAmount, item}) => {
-    const {  addItem, removeItem, clear} = useContext(CartContext);
+    const { addItem, removeItem, clear} = useContext(CartContext);
     const [count, setCount] = useState(0);
-    console.log(count);
+    const [purchase, setPurchase]= useState(false);   
 
+    
     const addButtonClickHandler = () => {
-        
+        setPurchase(true);
+        setAmount(amount + count);
         addItem(item.title, item.price, amount)
+        
     }
     
     const removeButtonClickHandler = () => {
@@ -18,6 +21,9 @@ const ItemCount = ({amount, setAmount, item}) => {
 
     const clearButtonClickHandler = () => {
         clear()
+        setCount(0)
+        setAmount(0)
+        setPurchase(false)
     }
 
     return (
@@ -33,19 +39,22 @@ const ItemCount = ({amount, setAmount, item}) => {
                     onClick={() => setCount(count + 1)}
                 >+</button>
             </div>
+            {!purchase ?
             <button 
                 className='buttonsAddToCart'
-                onClick={()=> {setAmount(amount + count); addButtonClickHandler()}}             
-            >Agregar al carrito</button>        
+                onClick={addButtonClickHandler}             
+            >Agregar al carrito</button>            
+            :
+            <button className="buttonsAddToCart"><Link to={'/cart'}>Comprar</Link></button>    
+            }     
             <button 
                 className='buttonsAddToCart'
-                onClick={()=> removeButtonClickHandler()}              
+                onClick={removeButtonClickHandler}              
             >Remover del carrito</button> 
             <button
                 className='buttonsAddToCart'
-                onClick={()=> clearButtonClickHandler()}                
-            >Vaciar el carrito</button>
-            <button className="buttonsAddToCart"><Link to={'/cart'}>Comprar</Link></button>            
+                onClick={clearButtonClickHandler}                
+            >Vaciar el carrito</button>   
         </div >
     )
 }

@@ -14,10 +14,9 @@ const CartProvider = ({children}) => {
 
     const addItem = (title, price, amount) => {     
         isInCart(title);   
-        if (!isInCart) {
+        if (!isInCart) {            
             setCartproducts([...cartproducts, {title, price, amount}])
-            console.log(cartproducts);
-           
+            console.log(cartproducts)          
         } else {
             console.log("Ese producto ya se encuentra en el carrito")
         } 
@@ -30,7 +29,7 @@ const CartProvider = ({children}) => {
             setCartproducts(cartproducts.splice(index, 1))
             console.log(cartproducts)
         } else {
-            console.log("No has agregado este producto al carrito aun")
+            console.log("No has agregado este producto al carrito aún")
         }               
     }
     
