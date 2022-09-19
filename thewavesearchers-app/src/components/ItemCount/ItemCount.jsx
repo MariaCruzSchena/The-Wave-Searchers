@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 
 const ItemCount = ({amount, setAmount, item}) => {
-    const { addItem, removeItem, clear} = useContext(CartContext);
+    const {addItem, removeItem, clear} = useContext(CartContext);
     const [count, setCount] = useState(0);
     const [purchase, setPurchase]= useState(false);   
 
@@ -11,12 +11,14 @@ const ItemCount = ({amount, setAmount, item}) => {
     const addButtonClickHandler = () => {
         setPurchase(true);
         setAmount(amount + count);
-        addItem(item.title, item.price, amount)
-        
-    }
+        addItem(item.title, item.price, count);
+       
+    }    
     
-    const removeButtonClickHandler = () => {
-        removeItem(item.title)
+    const removeButtonClickHandler = () => {      
+        removeItem(item.title);
+        setPurchase(false);
+        
     }
 
     const clearButtonClickHandler = () => {
@@ -24,6 +26,7 @@ const ItemCount = ({amount, setAmount, item}) => {
         setCount(0)
         setAmount(0)
         setPurchase(false)
+        
     }
 
     return (
