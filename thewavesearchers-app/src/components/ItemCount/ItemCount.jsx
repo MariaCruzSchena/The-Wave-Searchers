@@ -2,16 +2,16 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 
-const ItemCount = ({amount, setAmount, item}) => {
-    const {addItem, removeItem, clear} = useContext(CartContext);
+const ItemCount = ({amount, setAmount,  item}) => {
+    const {addItem, removeItem} = useContext(CartContext);
     const [count, setCount] = useState(0);
     const [purchase, setPurchase]= useState(false);   
 
     
     const addButtonClickHandler = () => {
         setPurchase(true);
-        setAmount(amount + count);
-        addItem(item.title, item.price, count);
+        addItem(item, count);
+        setAmount(amount + count);       
        
     }    
     
@@ -21,13 +21,12 @@ const ItemCount = ({amount, setAmount, item}) => {
         
     }
 
-    const clearButtonClickHandler = () => {
-        clear()
-        setCount(0)
-        setAmount(0)
-        setPurchase(false)
+    // const clearButtonClickHandler = () => {
+    //     clear()
+    //     setCount(0)        
+    //     setPurchase(false)
         
-    }
+    // }
 
     return (
         <div className='itemDetailButtonsContainer' >
@@ -54,10 +53,10 @@ const ItemCount = ({amount, setAmount, item}) => {
                 className='buttonsAddToCart'
                 onClick={removeButtonClickHandler}              
             >Remover del carrito</button> 
-            <button
+            {/* <button
                 className='buttonsAddToCart'
                 onClick={clearButtonClickHandler}                
-            >Vaciar el carrito</button>   
+            >Vaciar el carrito</button>    */}
         </div >
     )
 }

@@ -1,6 +1,7 @@
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({ item, amount, setAmount}) => {
+const ItemDetail = ({ item, amount, setAmount}) => {    
+
     return (
         <div className="itemDetailContainer">
             <div className="itemDetailImg"><img className="itemDetailImg2" src={item.thumbnail} alt="" /></div>

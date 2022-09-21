@@ -1,10 +1,21 @@
-import CartWidget from './cartWidget';
+import CartWidget from './CartWidget';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from "react";
+import { CartContext } from "./../../contexts/CartContext";
 
 const Navbar = ({ categoria1, categoria2, categoria3 }) => {
+    const {totalProducts, cartproducts} = useContext(CartContext);
+    const [totalamount , setTotalamount] = useState(totalProducts)
+
+    useEffect(() => {
+        let tot = totalProducts();
+        setTotalamount(tot)
+    }, [cartproducts]);
+    console.log(cartproducts);
+
     return (
         <nav className="nav">            
             <Link to={"/"}><h2 className="logo">The Wave Searchers</h2></Link>  
@@ -29,8 +40,11 @@ const Navbar = ({ categoria1, categoria2, categoria3 }) => {
                         <Dropdown.Item id="2"><Link to={`/category/${categoria2}`}>Funboards</Link> </Dropdown.Item>
                         <Dropdown.Item id="3"><Link to={`/category/${categoria3}`}>Barrenar</Link></Dropdown.Item>  
                     </Dropdown.Menu>
-                </Dropdown>
-                <li className="listItem"><CartWidget /></li>
+                </Dropdown>         
+                {totalamount > 1 ? 
+                <Link to={'/cart'}><li className="listItem"><CartWidget />{totalamount}</li></Link>                 
+                : <></>
+                }  
               
             </ul>           
         </nav> 
