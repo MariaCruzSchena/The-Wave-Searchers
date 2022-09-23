@@ -5,17 +5,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { ProductsContext } from "../../contexts/ProductsContext";
+
 
 const Navbar = ({ categoria1, categoria2}) => {
-    const {totalProducts, cartproducts} = useContext(CartContext);
-    const {changeCategory} = useContext(ProductsContext);
+    const {totalProducts, cartproducts} = useContext(CartContext);    
     const [totalamount , setTotalamount] = useState(totalProducts)
 
-    const selectChangeHandler = (ev)=>{
-        changeCategory(ev.target.value)
-    }
-
+    
     useEffect(() => {
         let tot = totalProducts();
         setTotalamount(tot)
@@ -37,12 +33,12 @@ const Navbar = ({ categoria1, categoria2}) => {
             <ul className="navList">
                
                 <Link to={'/'}><li className="listItem">Home</li></Link>    
-               
+             
                 <Dropdown >
                     <Dropdown.Toggle className='dropdownToggle' id="dropdown-basic">
                         Categorias
                     </Dropdown.Toggle>
-                    <Dropdown.Menu onChange={selectChangeHandler}>
+                    <Dropdown.Menu >
                         <Dropdown.Item value={'clothes'}><Link to={`/category/${categoria1}`}>Clothes</Link></Dropdown.Item>
                         <Dropdown.Item value={'surfboards'}><Link to={`/category/${categoria2}`}>Surfboards</Link> </Dropdown.Item>                         
                     </Dropdown.Menu>
