@@ -1,31 +1,30 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
+import { ItemContext } from "../../contexts/ItemContext";
 
-const ItemCount = ({amount, setAmount,  item}) => {
+const ItemCount = ({amount, setAmount}) => {
+    const {item} = useContext(ItemContext);
     const {addItem, removeItem} = useContext(CartContext);
     const [count, setCount] = useState(0);
     const [purchase, setPurchase]= useState(false);   
 
-    
+
     const addButtonClickHandler = () => {
         setPurchase(true);
         addItem(item, count);
-        setAmount(amount + count);       
-       
+        setAmount(amount + count);      
     }    
     
     const removeButtonClickHandler = () => {      
         removeItem(item.title);
-        setPurchase(false);
-        
+        setPurchase(false);        
     }
 
     // const clearButtonClickHandler = () => {
     //     clear()
     //     setCount(0)        
-    //     setPurchase(false)
-        
+    //     setPurchase(false)        
     // }
 
     return (

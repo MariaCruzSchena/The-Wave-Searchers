@@ -6,28 +6,34 @@ import ItemListContainer from './container/ItemListContainer';
 import Cart from './components/Cart/Cart'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
+import {ProductsProvider} from './contexts/ProductsContext';
+import {ItemProvider} from './contexts/ItemContext';
 
 
  
 function App() {  
   return (
     <>
-      <CartProvider >
-        <BrowserRouter>
-          <header className="App-header">
-            <Navbar categoria1={"Torq"} categoria2={"Soft"} categoria3={"Bodyboard"}/>
-            <Banner greeting={"OFFSHORE COLL."} />     
-          </header>  
+      <ProductsProvider>
+        <ItemProvider>
+          <CartProvider >
+            <BrowserRouter>
+              <header className="App-header">
+                <Navbar categoria1={"clothes"} categoria2={"surfboards"} />
+                <Banner greeting={"OFFSHORE COLL."} />     
+              </header>  
 
-          <Routes>
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/detail/:productId"  element={<ItemDetailContainer />} />
-            <Route path="/category/:categoryId"  element={<ItemListContainer />} />
-            <Route path="/"  element={<ItemListContainer />} />          
-        
-          </Routes>
-        </BrowserRouter>  
-      </CartProvider>  
+              <Routes>
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/detail/:productId"  element={<ItemDetailContainer />} />
+                <Route path="/category/:categoryId"  element={<ItemListContainer />} />
+                <Route path="/"  element={<ItemListContainer />} />          
+            
+              </Routes>
+            </BrowserRouter>  
+          </CartProvider>  
+        </ItemProvider>
+      </ProductsProvider>
     </>
  );
 }

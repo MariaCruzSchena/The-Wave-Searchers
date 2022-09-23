@@ -4,11 +4,17 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
 import React, { useContext, useState, useEffect } from "react";
-import { CartContext } from "./../../contexts/CartContext";
+import { CartContext } from "../../contexts/CartContext";
+import { ProductsContext } from "../../contexts/ProductsContext";
 
-const Navbar = ({ categoria1, categoria2, categoria3 }) => {
+const Navbar = ({ categoria1, categoria2}) => {
     const {totalProducts, cartproducts} = useContext(CartContext);
+    const {changeCategory} = useContext(ProductsContext);
     const [totalamount , setTotalamount] = useState(totalProducts)
+
+    const selectChangeHandler = (ev)=>{
+        changeCategory(ev.target.value)
+    }
 
     useEffect(() => {
         let tot = totalProducts();
@@ -30,17 +36,18 @@ const Navbar = ({ categoria1, categoria2, categoria3 }) => {
             </Form>
             <ul className="navList">
                
-                <Link to={'/'}><li className="listItem">Home</li></Link>                
-                <Dropdown>
+                <Link to={'/'}><li className="listItem">Home</li></Link>    
+               
+                <Dropdown >
                     <Dropdown.Toggle className='dropdownToggle' id="dropdown-basic">
                         Categorias
                     </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item id="1"><Link to={`/category/${categoria1}`}>Longboards</Link></Dropdown.Item>
-                        <Dropdown.Item id="2"><Link to={`/category/${categoria2}`}>Funboards</Link> </Dropdown.Item>
-                        <Dropdown.Item id="3"><Link to={`/category/${categoria3}`}>Barrenar</Link></Dropdown.Item>  
+                    <Dropdown.Menu onChange={selectChangeHandler}>
+                        <Dropdown.Item value={'clothes'}><Link to={`/category/${categoria1}`}>Clothes</Link></Dropdown.Item>
+                        <Dropdown.Item value={'surfboards'}><Link to={`/category/${categoria2}`}>Surfboards</Link> </Dropdown.Item>                         
                     </Dropdown.Menu>
                 </Dropdown>         
+
                 {totalamount > 1 ? 
                 <Link to={'/cart'}><li className="listItem"><CartWidget />{totalamount}</li></Link>                 
                 : <></>
