@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom';
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
-
 const Navbar = ({ categoria1, categoria2}) => {
     const {totalProducts, cartproducts} = useContext(CartContext);    
     const [totalamount , setTotalamount] = useState(totalProducts)
-
-    
+      
     useEffect(() => {
         let tot = totalProducts();
         setTotalamount(tot)
@@ -39,8 +37,8 @@ const Navbar = ({ categoria1, categoria2}) => {
                         Categorias
                     </Dropdown.Toggle>
                     <Dropdown.Menu >
-                        <Dropdown.Item value={'clothes'}><Link to={`/category/${categoria1}`}>Clothes</Link></Dropdown.Item>
-                        <Dropdown.Item value={'surfboards'}><Link to={`/category/${categoria2}`}>Surfboards</Link> </Dropdown.Item>                         
+                        <Dropdown.Item><Link to={`/category/${categoria1}`}>Funboards</Link></Dropdown.Item>
+                        <Dropdown.Item><Link to={`/category/${categoria2}`}>Longboards</Link> </Dropdown.Item>                         
                     </Dropdown.Menu>
                 </Dropdown>         
 

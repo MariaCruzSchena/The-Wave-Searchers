@@ -7,12 +7,11 @@ const ItemContext = React.createContext();
 const ItemProvider = ({children}) => {
     const [item, setItem] = useState([]);
     const { productId } = useParams();
-
-
-    useEffect (() => {
+   
+    useEffect (() => {        
         if(productId){
             const db = getFirestore();
-            const itemRef = doc(db, 'items', productId.trim());
+            const itemRef = doc(db, 'offshore', productId);
             getDoc(itemRef).then((snapshot)=>{
                 const newItem = {
                     id: snapshot.id,
@@ -25,7 +24,7 @@ const ItemProvider = ({children}) => {
         
 
     return (
-        <ItemContext.Provider value={{item}}>
+        <ItemContext.Provider value={{item, onCLickSetId}}>
             {children}
         </ItemContext.Provider>
     )

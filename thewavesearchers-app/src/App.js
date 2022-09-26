@@ -9,8 +9,6 @@ import { CartProvider } from './contexts/CartContext';
 import {ProductsProvider} from './contexts/ProductsContext';
 import {ItemProvider} from './contexts/ItemContext';
 
-
- 
 function App() {  
   return (
     <>
@@ -19,7 +17,7 @@ function App() {
           <CartProvider >
             <BrowserRouter>
               <header className="App-header">
-                <Navbar categoria1={"clothes"} categoria2={"surfboards"} />
+                <Navbar categoria1={"funboard"} categoria2={"longboard"} />
                 <Banner greeting={"OFFSHORE COLL."} />     
               </header>  
 

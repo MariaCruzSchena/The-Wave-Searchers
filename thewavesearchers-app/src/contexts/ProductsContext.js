@@ -6,13 +6,12 @@ const ProductsContext = React.createContext();
 const ProductsProvider = ({children}) => {
     const [products, setProducts] = useState([]);    
     const { categoryId } = useParams();
-    
+      
   
-    useEffect(() => {
-       
+    useEffect(() => {       
         if (!categoryId) {    
             const db = getFirestore();
-            const items = collection(db, 'items');
+            const items = collection(db, 'offshore');
             getDocs(items).then((snapshot) => {
                 const docs = snapshot.docs.map((doc) => ({
                     id: doc.id,
@@ -23,7 +22,7 @@ const ProductsProvider = ({children}) => {
 
         } else {        
             const db = getFirestore();
-            const items = collection(db, 'items');   
+            const items = collection(db, 'offshore');   
             const q = query(items , where('category', '==', categoryId.trim()));
             getDocs(q).then((snapshot) => {
                 const docs = snapshot.docs.map((doc) => ({
