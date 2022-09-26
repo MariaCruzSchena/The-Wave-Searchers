@@ -24,7 +24,7 @@ const ItemProvider = ({children}) => {
         
 
     return (
-        <ItemContext.Provider value={{item, onCLickSetId}}>
+        <ItemContext.Provider value={{item}}>
             {children}
         </ItemContext.Provider>
     )
