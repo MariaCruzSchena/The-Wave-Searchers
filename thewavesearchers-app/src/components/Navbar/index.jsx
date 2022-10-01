@@ -1,15 +1,32 @@
 import CartWidget from './CartWidget';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
+// import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { ProductsContext } from "../../contexts/ProductsContext";
 
-const Navbar = ({ categoria1, categoria2}) => {
-    const {totalProducts, cartproducts} = useContext(CartContext);    
-    const [totalamount , setTotalamount] = useState(totalProducts)
-      
+
+const Navbar = () => {
+    const {totalProducts, cartproducts} = useContext(CartContext);  
+    const {categorySetter} = useContext(ProductsContext);   
+    const [totalamount , setTotalamount] = useState(totalProducts);
+    const [cat , setCat] = useState("");
+    
+    const categorySetterHandler = (event)=>{        
+        setCat(event.target.value)
+    }
+
+    useEffect(() => {
+        categorySetter(cat);
+    }, [cat]);
+    console.log(cat);
+
+    const catChangerHandler = () =>{
+        setCat("")
+    }
+
     useEffect(() => {
         let tot = totalProducts();
         setTotalamount(tot)
@@ -18,7 +35,7 @@ const Navbar = ({ categoria1, categoria2}) => {
 
     return (
         <nav className="nav">            
-            <Link to={"/"}><h2 className="logo">The Wave Searchers</h2></Link>  
+            <Link to={"/"}><h2 className="logo" onClick={catChangerHandler}>The Wave Searchers</h2></Link>  
             <Form className="d-flex">
                 <Form.Control
                 type="search"
@@ -28,19 +45,17 @@ const Navbar = ({ categoria1, categoria2}) => {
                 />
                 <Button className="searchButton">Search</Button>
             </Form>
+          
             <ul className="navList">
                
-                <Link to={'/'}><li className="listItem">Home</li></Link>    
-             
-                <Dropdown >
-                    <Dropdown.Toggle className='dropdownToggle' id="dropdown-basic">
-                        Categorias
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu >
-                        <Dropdown.Item><Link to={`/category/${categoria1}`}>Funboards</Link></Dropdown.Item>
-                        <Dropdown.Item><Link to={`/category/${categoria2}`}>Longboards</Link> </Dropdown.Item>                         
-                    </Dropdown.Menu>
-                </Dropdown>         
+                <Link to={'/'}><li className="listItem" onClick={catChangerHandler}>Home</li></Link>    
+
+                <select className="select listItem" onChange={categorySetterHandler}>
+                    <option value="" >ALL SURFBOARDS</option>
+                    <option value="funboard" >FUNBOARD</option>
+                    <option value="longboard" >LONGBOARD</option>
+                    
+                </select>            
 
                 {totalamount > 1 ? 
                 <Link to={'/cart'}><li className="listItem"><CartWidget />{totalamount}</li></Link>                 

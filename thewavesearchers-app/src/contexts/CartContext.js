@@ -4,40 +4,35 @@ const CartContext = React.createContext();
 const CartProvider = ({children}) => {
     const [cartproducts, setCartproducts] = useState([]);
     console.log(cartproducts)
+    const [precioTotal, setPrecioTotal] = useState(0);
     
 
-    const isInCart = (title) =>{
-      return cartproducts.find((e) => e.title === title);
+    const isInCart = (id) =>{
+      return cartproducts.find((e) => e.id === id);
       
     }
 
     const addItem = (item, quantity) => {            
-        const previous = isInCart(item.title)
+        const previous = isInCart(item.id)
 
         if (!previous) {    
             item.quantity = quantity
             setCartproducts([...cartproducts, item])                     
         } else {
             console.log("Ese producto ya se encuentra en el carrito")
-            const newcart = cartproducts.filter((e) => e.title !== item.title);
+            const newcart = cartproducts.filter((e) => e.id !== item.id);
             item.quantity = quantity + previous.quantity;
             newcart.push(item);
             setCartproducts(newcart);
         }         
     }   
 
-
-    const removeItem = (title) => {  
-        // const names = cartproducts.map((el)=> el.title);        
-        // const index = names.indexOf(title)        
-        // cartproducts.splice(index, 1)       
-        // setCartproducts(cartproducts) 
-
-        setCartproducts(cartproducts.filter((e) => e.title !== title));                       
+    const removeItem = (id) => { 
+        setCartproducts(cartproducts.filter((e) => e.id !== id));                       
     }
 
     const changeAmount = (item, newcount)=>{               
-        const newcart = cartproducts.filter((e) => e.title !== item.title);
+        const newcart = cartproducts.filter((e) => e.id !== item.id);
         item.quantity = newcount;
         newcart.push(item);
         setCartproducts(newcart);
@@ -56,17 +51,12 @@ const CartProvider = ({children}) => {
     };
 
     const totalProducts = () => {
-        // let total = 0;
-        // cartproducts.forEach((item) => {
-        //   total = total + item.quantity;
-        // });
-        // return total;
-
         return cartproducts.reduce((acc,el)=> acc + el.quantity, 0)
     };
+  
 
     return (
-        <CartContext.Provider value={{cartproducts, addItem, removeItem, clear, totalPrice, totalProducts, changeAmount}}>
+        <CartContext.Provider value={{cartproducts, addItem, removeItem, clear, totalPrice, totalProducts, changeAmount, precioTotal, setPrecioTotal}}>
             {children}
         </CartContext.Provider>
     )

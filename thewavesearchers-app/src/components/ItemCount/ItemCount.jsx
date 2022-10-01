@@ -17,15 +17,9 @@ const ItemCount = ({amount, setAmount}) => {
     }    
     
     const removeButtonClickHandler = () => {      
-        removeItem(item.title);
+        removeItem(item.id);
         setPurchase(false);        
     }
-
-    // const clearButtonClickHandler = () => {
-    //     clear()
-    //     setCount(0)        
-    //     setPurchase(false)        
-    // }
 
     return (
         <div className='itemDetailButtonsContainer' >
@@ -51,11 +45,7 @@ const ItemCount = ({amount, setAmount}) => {
             <button 
                 className='buttonsAddToCart'
                 onClick={removeButtonClickHandler}              
-            >Remover del carrito</button> 
-            {/* <button
-                className='buttonsAddToCart'
-                onClick={clearButtonClickHandler}                
-            >Vaciar el carrito</button>    */}
+            >Remover del carrito</button>            
         </div >
     )
 }

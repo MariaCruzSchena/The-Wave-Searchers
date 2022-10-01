@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore'
-import { useParams } from 'react-router-dom';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 const ProductsContext = React.createContext();
 
 const ProductsProvider = ({children}) => {
-    const [products, setProducts] = useState([]);    
-    const { categoryId } = useParams();
-      
+    const [products, setProducts] = useState([]);  
+    const [category, setCategory] = useState("");
+
+    const categorySetter = (value) =>{
+        setCategory(value);        
+    }    
   
     useEffect(() => {       
-        if (!categoryId) {    
+        if (category == "") {    
             const db = getFirestore();
             const items = collection(db, 'offshore');
             getDocs(items).then((snapshot) => {
@@ -23,7 +25,7 @@ const ProductsProvider = ({children}) => {
         } else {        
             const db = getFirestore();
             const items = collection(db, 'offshore');   
-            const q = query(items , where('category', '==', categoryId.trim()));
+            const q = query(items , where('category', '==', category.trim()));
             getDocs(q).then((snapshot) => {
                 const docs = snapshot.docs.map((doc) => ({
                     id: doc.id,
@@ -32,10 +34,10 @@ const ProductsProvider = ({children}) => {
                 setProducts(docs)
             });
         }
-    }, [categoryId]);
+    }, [category]);
 
     return (
-        <ProductsContext.Provider value={{products}}>
+        <ProductsContext.Provider value={{products, categorySetter}}>
             {children}
         </ProductsContext.Provider>
     )

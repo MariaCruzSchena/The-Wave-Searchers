@@ -6,7 +6,7 @@ const CartItem = ({ item }) => {
   const [newcount, setNewcount] = useState(item.quantity)
 
   const handleDelete = () => {
-    removeItem(item.title);
+    removeItem(item.id);
   }
 
   const handleChange = () => {
@@ -17,7 +17,7 @@ const CartItem = ({ item }) => {
     <>
       <div className="cartContainer">
         <div className="cartImg">
-          <img className="cartImg2" src={item.thumbnail} alt="" />
+          <img className="cartImg2" src={item.image} alt="" />
         </div>
         <div className="cartContent">
           <h3 className="cartTitle">{item.title}</h3>

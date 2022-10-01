@@ -8,27 +8,28 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
 import {ProductsProvider} from './contexts/ProductsContext';
 import {ItemProvider} from './contexts/ItemContext';
+import ContactForm from './components/Form/Form';
 
 function App() {  
   return (
     <>
       <ProductsProvider>
         <ItemProvider>
-          <CartProvider >
+          <CartProvider >            
             <BrowserRouter>
               <header className="App-header">
-                <Navbar categoria1={"funboard"} categoria2={"longboard"} />
+                <Navbar />
                 <Banner greeting={"OFFSHORE COLL."} />     
               </header>  
-
               <Routes>
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/detail/:productId"  element={<ItemDetailContainer />} />
-                <Route path="/category/:categoryId"  element={<ItemListContainer />} />
+                {/* <Route path="/category/:categoryId"  element={<ItemListContainer />} />   */}
+                <Route path="/form" element={<ContactForm />} />
                 <Route path="/"  element={<ItemListContainer />} />          
             
-              </Routes>
-            </BrowserRouter>  
+              </Routes>              
+            </BrowserRouter>             
           </CartProvider>  
         </ItemProvider>
       </ProductsProvider>
