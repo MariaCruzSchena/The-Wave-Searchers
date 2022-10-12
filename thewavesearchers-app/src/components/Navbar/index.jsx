@@ -2,6 +2,7 @@ import CartWidget from './CartWidget';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 // import Dropdown from 'react-bootstrap/Dropdown';
+
 import { Link } from 'react-router-dom';
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
@@ -12,16 +13,16 @@ const Navbar = () => {
     const {totalProducts, cartproducts} = useContext(CartContext);  
     const {categorySetter} = useContext(ProductsContext);   
     const [totalamount , setTotalamount] = useState(totalProducts);
-    const [cat , setCat] = useState("");
+    const [cat , setCat] = useState("");    
     
     const categorySetterHandler = (event)=>{        
-        setCat(event.target.value)
+        setCat(event.target.value);        
     }
 
     useEffect(() => {
-        categorySetter(cat);
-    }, [cat]);
-    console.log(cat);
+        categorySetter(cat);     
+        //eslint-disable-next-line react-hooks/exhaustive-deps   
+    }, [cat]);    
 
     const catChangerHandler = () =>{
         setCat("")
@@ -29,9 +30,10 @@ const Navbar = () => {
 
     useEffect(() => {
         let tot = totalProducts();
-        setTotalamount(tot)
+        setTotalamount(tot);
+        //eslint-disable-next-line react-hooks/exhaustive-deps  
     }, [cartproducts]);
-    console.log(cartproducts);
+   
 
     return (
         <nav className="nav">            
@@ -44,24 +46,26 @@ const Navbar = () => {
                 aria-label="Search"
                 />
                 <Button className="searchButton">Search</Button>
-            </Form>
-          
-            <ul className="navList">
-               
-                <Link to={'/'}><li className="listItem" onClick={catChangerHandler}>Home</li></Link>    
-
-                <select className="select listItem" onChange={categorySetterHandler}>
-                    <option value="" >ALL SURFBOARDS</option>
+            </Form>          
+            <ul className="navList">               
+                <Link to={'/'}><li className="listItem" onClick={catChangerHandler}>Home</li></Link>
+                
+                <select className="select listItem" onChange={categorySetterHandler}>   
+                    <option value="" >ALL SURFBOARDS</option>             
                     <option value="funboard" >FUNBOARD</option>
-                    <option value="longboard" >LONGBOARD</option>
-                    
-                </select>            
-
+                    <option value="longboard">LONGBOARD</option>                
+                </select>
+                
                 {totalamount > 1 ? 
-                <Link to={'/cart'}><li className="listItem"><CartWidget />{totalamount}</li></Link>                 
-                : <></>
-                }  
-              
+                    <Link to={'/cart'}>
+                        <li className="listItem">
+                            <CartWidget />
+                            {totalamount}
+                        </li>
+                    </Link>                 
+                :   <>
+                    </>
+                }                
             </ul>           
         </nav> 
     )

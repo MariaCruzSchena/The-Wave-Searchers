@@ -1,6 +1,6 @@
 import ItemDetailList from "../components/ItemDetail/ItemDetailList";
 
 const ItemDetailContainer = () => {
-    return <ItemDetailList  />
+    return <ItemDetailList />
 }
 export default ItemDetailContainer;

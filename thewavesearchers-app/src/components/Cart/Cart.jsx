@@ -4,19 +4,19 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cartproducts, clear, totalPrice, precioTotal, setPrecioTotal } = useContext(CartContext);
-  
+  const { cartproducts, clear, precioTotal, setPrecioTotal, totalPrice } = useContext(CartContext);
+
   useEffect(() => {
     setPrecioTotal(totalPrice());
-  }, [cartproducts]);
-  console.log(cartproducts); 
+    //eslint-disable-next-line react-hooks/exhaustive-deps  
+  }, [cartproducts]);  
 
   return (
     <>
       {cartproducts.length > 0 ? (
         <>
           {cartproducts.map((element) => (
-            <CartItem item={element} />
+            <CartItem key={element.id} item={element} />
           ))}
           <div className="cartContainer2">
             <h2 className="cartTitle">TOTAL: $ARS {precioTotal}</h2>

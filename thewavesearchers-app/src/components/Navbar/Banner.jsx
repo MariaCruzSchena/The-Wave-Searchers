@@ -1,5 +1,5 @@
 
-const Banner = ({greeting}) => {
+const Banner = ({ greeting }) => {
     return (
         <div className='imgContainer'>
             <div className="titleContainer">

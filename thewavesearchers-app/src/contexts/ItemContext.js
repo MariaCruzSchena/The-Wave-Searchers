@@ -8,7 +8,7 @@ const ItemProvider = ({children}) => {
     const [itemid, setItemid]= useState("");
 
     const idSetter =(identificator)=>{
-        setItemid(identificator)
+        setItemid(identificator);
     }  
 
 

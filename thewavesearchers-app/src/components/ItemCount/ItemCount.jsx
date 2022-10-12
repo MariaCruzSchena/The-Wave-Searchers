@@ -3,22 +3,21 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { ItemContext } from "../../contexts/ItemContext";
 
-const ItemCount = ({amount, setAmount}) => {
-    const {item} = useContext(ItemContext);
-    const {addItem, removeItem} = useContext(CartContext);
+const ItemCount = ({ amount, setAmount }) => {
+    const { item } = useContext(ItemContext);
+    const { addItem, removeItem } = useContext(CartContext);
     const [count, setCount] = useState(0);
-    const [purchase, setPurchase]= useState(false);   
-
+    const [purchase, setPurchase] = useState(false);
 
     const addButtonClickHandler = () => {
         setPurchase(true);
         addItem(item, count);
-        setAmount(amount + count);      
-    }    
-    
-    const removeButtonClickHandler = () => {      
+        setAmount(amount + count);
+    }
+
+    const removeButtonClickHandler = () => {
         removeItem(item.id);
-        setPurchase(false);        
+        setPurchase(false);
     }
 
     return (
@@ -35,18 +34,18 @@ const ItemCount = ({amount, setAmount}) => {
                 >+</button>
             </div>
             {!purchase ?
-            <button 
+                <button
+                    className='buttonsAddToCart'
+                    onClick={addButtonClickHandler}
+                >Agregar al carrito</button>
+                :
+                <button className="buttonsAddToCart"><Link to={'/cart'}>Comprar</Link></button>
+            }
+            <button
                 className='buttonsAddToCart'
-                onClick={addButtonClickHandler}             
-            >Agregar al carrito</button>            
-            :
-            <button className="buttonsAddToCart"><Link to={'/cart'}>Comprar</Link></button>    
-            }     
-            <button 
-                className='buttonsAddToCart'
-                onClick={removeButtonClickHandler}              
-            >Remover del carrito</button>            
-        </div >
+                onClick={removeButtonClickHandler}
+            >Remover del carrito</button>
+        </div>
     )
 }
 

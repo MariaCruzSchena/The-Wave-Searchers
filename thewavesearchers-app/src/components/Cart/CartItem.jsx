@@ -10,18 +10,18 @@ const CartItem = ({ item }) => {
   }
 
   const handleChange = () => {
-    changeAmount(item, newcount)
+    changeAmount(item, newcount);
   }
 
   return (
     <>
-      <div className="cartContainer">
+      <div className="cartContainer" >
         <div className="cartImg">
           <img className="cartImg2" src={item.image} alt="" />
         </div>
         <div className="cartContent">
           <h3 className="cartTitle">{item.title}</h3>
-          <h4 className="cartPrice">Cantidad: {item.quantity}</h4>
+          <h4 className="cartPrice">Cantidad: {newcount}</h4>
           <h4 className="cartPrice">$ARS {item.price}</h4>
           <div className='buttonsSubcontainerChange'>
             <button
@@ -39,8 +39,6 @@ const CartItem = ({ item }) => {
         </div>
       </div>
     </>
-
-
   );
 };
 
