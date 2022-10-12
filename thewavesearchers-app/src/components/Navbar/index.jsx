@@ -56,7 +56,7 @@ const Navbar = () => {
                     <option value="longboard">LONGBOARD</option>                
                 </select>
                 
-                {totalamount > 1 ? 
+                {totalamount >= 1 ? 
                     <Link to={'/cart'}>
                         <li className="listItem">
                             <CartWidget />

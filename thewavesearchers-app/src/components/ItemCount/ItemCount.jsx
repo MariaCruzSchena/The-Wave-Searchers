@@ -39,7 +39,7 @@ const ItemCount = ({ amount, setAmount }) => {
                     onClick={addButtonClickHandler}
                 >Agregar al carrito</button>
                 :
-                <button className="buttonsAddToCart"><Link to={'/cart'}>Comprar</Link></button>
+                <button className="buttonsAddToCart"><Link to={'/cart'}>Ir a carrito</Link></button>
             }
             <button
                 className='buttonsAddToCart'

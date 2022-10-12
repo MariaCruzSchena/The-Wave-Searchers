@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
-import { CartContext } from "./../../contexts/CartContext"
+import { CartContext } from "./../../contexts/CartContext";
+import Swal from 'sweetalert2';
 
 const CartItem = ({ item }) => {
   const { removeItem, changeAmount } = useContext(CartContext);
-  const [newcount, setNewcount] = useState(item.quantity)
+  const [newcount, setNewcount] = useState(item.quantity);
+
 
   const handleDelete = () => {
     removeItem(item.id);
@@ -11,6 +13,15 @@ const CartItem = ({ item }) => {
 
   const handleChange = () => {
     changeAmount(item, newcount);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Saved!',
+      showConfirmButton: false,
+      timer: 1500,
+      width: '22rem',
+      heightAuto: '13rem'
+    })
   }
 
   return (
