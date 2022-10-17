@@ -1,8 +1,6 @@
 import CartWidget from './CartWidget';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-// import Dropdown from 'react-bootstrap/Dropdown';
-
 import { Link } from 'react-router-dom';
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../contexts/CartContext";
